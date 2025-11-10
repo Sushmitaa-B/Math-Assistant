@@ -1,4 +1,3 @@
-
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
@@ -6,10 +5,23 @@ import java.awt.event.*;
 import java.util.List;
 
 /**
- * 🧮 SS AI Lab's Mathematical Assistant
+ *🧮SS AI Lab's Mathematical Assistant
  * Combined Java Swing application for arithmetic operations and Fibonacci curve visualization
  */
 public class FibonacciGUI extends JFrame {
+
+    // === Global Styling ===
+    private static final Font APP_FONT_PLAIN = new Font("Poppins", Font.PLAIN, 16);
+    private static final Font APP_FONT_BOLD = new Font("Poppins", Font.BOLD, 18);
+    private static final Font APP_FONT_TITLE = new Font("Poppins", Font.BOLD, 26);
+
+    // === Pastel Color Palette ===
+    private static final Color BACKGROUND_MAIN = new Color(245, 243, 255); // soft lavender
+    private static final Color PANEL_BACKGROUND = new Color(255, 255, 255); // white
+    private static final Color TITLE_COLOR = new Color(180, 140, 255); // pastel violet
+    private static final Color BUTTON_COLOR = new Color(140, 180, 255); // pastel blue
+    private static final Color TEXT_COLOR = new Color(60, 60, 70); // soft grayish text
+    private static final Color SUCCESS_COLOR = new Color(100, 170, 140); // pastel green
 
     private JComboBox<String> operationCombo;
     private JTextField num1Field, num2Field, nField;
@@ -23,7 +35,7 @@ public class FibonacciGUI extends JFrame {
         setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
-        getContentPane().setBackground(new Color(240, 248, 255));
+        getContentPane().setBackground(BACKGROUND_MAIN);
 
         initComponents();
         setLocationRelativeTo(null);
@@ -33,9 +45,9 @@ public class FibonacciGUI extends JFrame {
     private void initComponents() {
         // Title Panel
         JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(new Color(70, 130, 180));
+        titlePanel.setBackground(TITLE_COLOR);
         JLabel titleLabel = new JLabel("🧮 SS AI Lab's Mathematical Assistant");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        titleLabel.setFont(APP_FONT_TITLE);
         titleLabel.setForeground(Color.WHITE);
         titlePanel.add(titleLabel);
         add(titlePanel, BorderLayout.NORTH);
@@ -43,18 +55,18 @@ public class FibonacciGUI extends JFrame {
         // Main Panel
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(10, 10));
-        mainPanel.setBackground(new Color(240, 248, 255));
+        mainPanel.setBackground(BACKGROUND_MAIN);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // Control Panel (Left)
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.Y_AXIS));
-        controlPanel.setBackground(Color.WHITE);
+        controlPanel.setBackground(PANEL_BACKGROUND);
         controlPanel.setBorder(BorderFactory.createTitledBorder("Controls"));
         controlPanel.setPreferredSize(new Dimension(350, 600));
 
-        JLabel opLabel = new JLabel("✅ Choose the operation:");
-        opLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        JLabel opLabel = new JLabel("Choose the operation:");
+        opLabel.setFont(APP_FONT_BOLD);
         opLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         controlPanel.add(opLabel);
         controlPanel.add(Box.createVerticalStrut(10));
@@ -63,20 +75,21 @@ public class FibonacciGUI extends JFrame {
         operationCombo = new JComboBox<>(operations);
         operationCombo.setMaximumSize(new Dimension(300, 30));
         operationCombo.setAlignmentX(Component.LEFT_ALIGNMENT);
+        operationCombo.setFont(APP_FONT_PLAIN);
         operationCombo.addActionListener(e -> updateInputFields());
         controlPanel.add(operationCombo);
         controlPanel.add(Box.createVerticalStrut(20));
 
         inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
-        inputPanel.setBackground(Color.WHITE);
+        inputPanel.setBackground(PANEL_BACKGROUND);
         inputPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         controlPanel.add(inputPanel);
 
         controlPanel.add(Box.createVerticalStrut(20));
         calculateButton = new JButton("Calculate");
-        calculateButton.setFont(new Font("Arial", Font.BOLD, 16));
-        calculateButton.setBackground(new Color(70, 130, 180));
+        calculateButton.setFont(APP_FONT_BOLD);
+        calculateButton.setBackground(BUTTON_COLOR);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.setMaximumSize(new Dimension(300, 40));
         calculateButton.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -85,8 +98,8 @@ public class FibonacciGUI extends JFrame {
 
         controlPanel.add(Box.createVerticalStrut(20));
         resultLabel = new JLabel("");
-        resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
-        resultLabel.setForeground(new Color(0, 100, 0));
+        resultLabel.setFont(APP_FONT_BOLD);
+        resultLabel.setForeground(SUCCESS_COLOR);
         resultLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         controlPanel.add(resultLabel);
 
@@ -95,7 +108,7 @@ public class FibonacciGUI extends JFrame {
         // Display Panel
         displayPanel = new JPanel();
         displayPanel.setLayout(new BorderLayout());
-        displayPanel.setBackground(Color.WHITE);
+        displayPanel.setBackground(PANEL_BACKGROUND);
         displayPanel.setBorder(BorderFactory.createTitledBorder("Output"));
         plotPanel = new FibonacciPlotPanel();
         displayPanel.add(plotPanel, BorderLayout.CENTER);
@@ -111,36 +124,39 @@ public class FibonacciGUI extends JFrame {
 
         if (operation.equals("Fibonacci Curve")) {
             JLabel nLabel = new JLabel("Enter the number of terms (N):");
-            nLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+            nLabel.setFont(APP_FONT_PLAIN);
             nLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(nLabel);
             inputPanel.add(Box.createVerticalStrut(5));
 
             nField = new JTextField("10");
             nField.setMaximumSize(new Dimension(300, 30));
+            nField.setFont(APP_FONT_PLAIN);
             nField.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(nField);
         } else {
             JLabel num1Label = new JLabel("Enter the Value of A:");
-            num1Label.setFont(new Font("Arial", Font.PLAIN, 12));
+            num1Label.setFont(APP_FONT_PLAIN);
             num1Label.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(num1Label);
             inputPanel.add(Box.createVerticalStrut(5));
 
             num1Field = new JTextField("0.0");
             num1Field.setMaximumSize(new Dimension(300, 30));
+            num1Field.setFont(APP_FONT_PLAIN);
             num1Field.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(num1Field);
             inputPanel.add(Box.createVerticalStrut(10));
 
             JLabel num2Label = new JLabel("Enter the Value of B:");
-            num2Label.setFont(new Font("Arial", Font.PLAIN, 12));
+            num2Label.setFont(APP_FONT_PLAIN);
             num2Label.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(num2Label);
             inputPanel.add(Box.createVerticalStrut(5));
 
             num2Field = new JTextField("0.0");
             num2Field.setMaximumSize(new Dimension(300, 30));
+            num2Field.setFont(APP_FONT_PLAIN);
             num2Field.setAlignmentX(Component.LEFT_ALIGNMENT);
             inputPanel.add(num2Field);
         }
@@ -207,7 +223,7 @@ public class FibonacciGUI extends JFrame {
         private boolean showPlot = false;
 
         public FibonacciPlotPanel() {
-            setBackground(Color.WHITE);
+            setBackground(PANEL_BACKGROUND);
             setPreferredSize(new Dimension(600, 600));
         }
 
@@ -227,8 +243,8 @@ public class FibonacciGUI extends JFrame {
             super.paintComponent(g);
 
             if (!showPlot || segments == null || segments.isEmpty()) {
-                g.setColor(Color.GRAY);
-                g.setFont(new Font("Arial", Font.ITALIC, 16));
+                g.setColor(TEXT_COLOR);
+                g.setFont(APP_FONT_PLAIN);
                 String msg = "Fibonacci Curve will appear here";
                 FontMetrics fm = g.getFontMetrics();
                 int x = (getWidth() - fm.stringWidth(msg)) / 2;
@@ -271,7 +287,7 @@ public class FibonacciGUI extends JFrame {
             int offsetY = 30;
 
             // Grid
-            g2d.setColor(new Color(220, 220, 220));
+            g2d.setColor(new Color(230, 230, 240));
             for (int i = 0; i <= 10; i++) {
                 int x = offsetX + (int) (i * plotWidth / 10.0);
                 int y = offsetY + (int) (i * plotHeight / 10.0);
@@ -280,7 +296,7 @@ public class FibonacciGUI extends JFrame {
             }
 
             // Axes
-            g2d.setColor(Color.BLACK);
+            g2d.setColor(TEXT_COLOR);
             g2d.setStroke(new BasicStroke(2));
             int zeroX = offsetX + (int) ((-minX) * scale);
             int zeroY = offsetY + plotHeight - (int) ((-minY) * scale);
@@ -289,14 +305,11 @@ public class FibonacciGUI extends JFrame {
 
             // Draw curves
             Color[] colors = {
-                    new Color(0, 0, 128),
-                    new Color(220, 20, 60),
-                    new Color(0, 128, 0),
-                    new Color(255, 140, 0),
-                    new Color(138, 43, 226),
-                    new Color(255, 20, 147),
-                    new Color(0, 191, 255),
-                    new Color(255, 215, 0)
+                new Color(170, 200, 255),
+                new Color(255, 190, 200),
+                new Color(190, 255, 210),
+                new Color(255, 230, 170),
+                new Color(210, 190, 255)
             };
             g2d.setStroke(new BasicStroke(2.5f));
 
@@ -312,9 +325,9 @@ public class FibonacciGUI extends JFrame {
                 }
             }
 
-            // Labels
-            g2d.setColor(Color.BLACK);
-            g2d.setFont(new Font("Arial", Font.BOLD, 16));
+            // Title
+            g2d.setColor(TEXT_COLOR);
+            g2d.setFont(APP_FONT_BOLD);
             String title = "Fibonacci Curve (Individual Quadrants)";
             FontMetrics fm = g2d.getFontMetrics();
             int titleX = (getWidth() - fm.stringWidth(title)) / 2;
@@ -326,6 +339,12 @@ public class FibonacciGUI extends JFrame {
         SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                UIManager.put("Label.font", APP_FONT_PLAIN);
+                UIManager.put("Button.font", APP_FONT_BOLD);
+                UIManager.put("ComboBox.font", APP_FONT_PLAIN);
+                UIManager.put("TextField.font", APP_FONT_PLAIN);
+                UIManager.put("TitledBorder.font", APP_FONT_BOLD);
+                UIManager.put("Panel.background", PANEL_BACKGROUND);
             } catch (Exception ignored) {}
             new FibonacciGUI();
         });
@@ -336,7 +355,6 @@ public class FibonacciGUI extends JFrame {
 // Helper logic class (non-public)
 // ======================================================================
 class FibonacciCalculator {
-
     public static class CurveSegment {
         public List<Double> X;
         public List<Double> Y;
@@ -358,9 +376,9 @@ class FibonacciCalculator {
         for (int i = 0; i < N; i++) F.add(F.get(F.size() - 1) + F.get(F.size() - 2));
 
         List<double[]> I = new ArrayList<>(Arrays.asList(
-                new double[]{0, 0},
-                new double[]{0, 0},
-                new double[]{0, 0}
+            new double[]{0, 0},
+            new double[]{0, 0},
+            new double[]{0, 0}
         ));
 
         for (int j = 3; j < N; j++) {
@@ -404,7 +422,6 @@ class FibonacciCalculator {
     public static double subtract(double a, double b) { return a - b; }
     public static double multiply(double a, double b) { return a * b; }
     public static String divide(double a, double b) {
-        return (b == 0) ? "❌ Cannot divide by zero" : String.format("%.2f", a / b);
+        return (b == 0) ? "Cannot divide by zero" : String.format("%.2f", a / b);
     }
 }
-
