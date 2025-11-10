@@ -1,3 +1,4 @@
+
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
@@ -406,3 +407,4 @@ class FibonacciCalculator {
         return (b == 0) ? "❌ Cannot divide by zero" : String.format("%.2f", a / b);
     }
 }
+
