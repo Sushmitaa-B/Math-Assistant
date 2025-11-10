@@ -19,3 +19,6 @@ It replicates the design and behavior of the Python Streamlit app [Math01](https
 1. Clone or download this repository:
    ```bash
    git clone https://github.com/<your-username>/Fibonacci-Math-Assistant.git
+
+   
+![App Screenshot](images/output.png)
