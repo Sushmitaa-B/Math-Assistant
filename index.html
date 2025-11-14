@@ -14,9 +14,10 @@
     async function runApp() {
         await cheerpjInit({filesystem: true});
 
-        await cheerpjRunJar("/app/FibonacciGUI.jar", {
-            entrypoint: "FibonacciGUI"
-        });
+       await cheerpjRunJar("/FibonacciGUI.jar", {
+    entrypoint: "FibonacciGUI"
+});
+
     }
 
     runApp();
