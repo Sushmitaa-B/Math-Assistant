@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Math Assistant - Browser Version</title>
+
+    <!-- Load CheerpJ Runtime -->
+    <script src="https://cjrtnc.leaningtech.com/latest/cheerpj.js"></script>
+
+    <style>
+        body { background: #f5f5f5; font-family: Arial; text-align: center; padding: 30px; }
+        #loading { font-size: 22px; color: #333; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Math Assistant (Browser Version)</h2>
+    <div id="loading">Loading Application... Please wait ⏳</div>
+
+    <script>
+        cheerpjInit();
+        cheerpjRunJar("./FibonacciGUI.jar");
+    </script>
+
+</body>
+</html>
