@@ -12,18 +12,16 @@
 
  <script>
     async function runApp() {
-        await cheerpjInit();
+        await cheerpjInit({filesystem: true});
 
-        await cheerpjRunJar(
-            "https://math-assistant-bice.vercel.app/FibonacciGUI.jar",
-            {
-                entrypoint: "FibonacciGUI"
-            }
-        );
+        await cheerpjRunJar("/app/FibonacciGUI.jar", {
+            entrypoint: "FibonacciGUI"
+        });
     }
 
     runApp();
 </script>
+
 
 
 </body>
