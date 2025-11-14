@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Math Assistant</title>
+  <title>Math Assistant</title>
 
-    <script src="https://cjrtnc.leaningtech.com/latest/cheerpj.js"></script>
-
-    <script>
-        cheerpjInit();
-        cheerpjRunJar("/FibonacciGUI.jar");
-    </script>
+  <!-- Load CheerpJ -->
+  <script src="https://cjrtnc.leaningtech.com/latest/cheerpj.js"></script>
 </head>
+
 <body>
-    <h2>Launching Math Assistant…</h2>
+  <h2>Launching Math Assistant…</h2>
+
+  <script>
+      async function runApp() {
+          await cheerpjInit();
+
+          // Load the JAR directly from URL
+          await cheerpjRunJar("https://math-assistant-bice.vercel.app/FibonacciGUI.jar");
+      }
+
+      runApp();
+  </script>
 </body>
 </html>
