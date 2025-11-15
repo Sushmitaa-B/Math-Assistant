@@ -10,17 +10,25 @@
 <body>
   <h2>Launching Math Assistant…</h2>
 
- <script>
+<script>
     async function runApp() {
-        await cheerpjInit({ filesystem: true });
+        await cheerpjInit();
 
-        await cheerpjRunJar("/FibonacciGUI.jar", {
+        // Copy JAR from URL → CheerpJ virtual filesystem
+        await cheerpjFetchFile(
+            "https://math-assistant-bice.vercel.app/FibonacciGUI.jar",
+            "/app/FibonacciGUI.jar"
+        );
+
+        // Run from VFS (must use the VFS path)
+        await cheerpjRunJar("/app/FibonacciGUI.jar", {
             mainClass: "FibonacciGUI"
         });
     }
 
     runApp();
 </script>
+
 
 
 
