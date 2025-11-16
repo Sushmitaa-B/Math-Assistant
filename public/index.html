@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Assistant - Fibonacci GUI</title>
+  <script src="cheerpj.js"></script>
+  <script src="cheerpj-worker.js"></script>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    #status {
+      font-size: 1em;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Launching Math Assistant…</h1>
+  <div id="status">Initializing CheerpJ runtime</div>
+
+  <script>
+    async function launchApp() {
+      await cheerpjInit();
+      document.getElementById("status").textContent = "Running FibonacciGUI.jar…";
+      cheerpjRunJar("FibonacciGUI.jar");
+    }
+    launchApp();
+  </script>
+</body>
+</html>
