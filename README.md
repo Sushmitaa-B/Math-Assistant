@@ -5,9 +5,6 @@ A Java-based desktop application that performs arithmetic operations and visuali
 It also includes a web version built using Spring Boot, HTML, CSS, and JavaScript, making the application accessible through a browser.
 
 ---
-
-## 📌 Project Overview
-
 ## 📌 Project Overview
 
 The Mathematical Assistant combines basic arithmetic calculations with graphical visualization of the Fibonacci sequence. Users can perform operations such as addition, subtraction, multiplication, and division, while also exploring the Fibonacci spiral through dynamic graphical plotting.
