@@ -1,70 +1,198 @@
-[README.md](https://github.com/user-attachments/files/23566241/README.md)
-# 🧮 Mathematical Assistant (Java Swing)
+# 🧮 Mathematical Assistant
 
-This project is a **Java Swing desktop application** that performs arithmetic operations and visualizes the **Fibonacci curve**.
+A Java-based desktop application that performs arithmetic operations and visualizes the Fibonacci spiral through an interactive graphical user interface. The application is built using Java Swing and AWT, providing users with both computational and graphical mathematical tools in a clean, user-friendly environment.
+
+It also includes a web version built using Spring Boot, HTML, CSS, and JavaScript, making the application accessible through a browser.
+
+---
+
+## 📌 Project Overview
+
+## 📌 Project Overview
+
+The Mathematical Assistant combines basic arithmetic calculations with graphical visualization of the Fibonacci sequence. Users can perform operations such as addition, subtraction, multiplication, and division, while also exploring the Fibonacci spiral through dynamic graphical plotting.
 
 It replicates the design and behavior of the Python Streamlit app [Math01](https://math01-gcujq4iq4nfavwz3tg9bur.streamlit.app/).
 
----
-
-## ⚙️ Features
-- ➕ Addition  
-- ➖ Subtraction  
-- ✖️ Multiplication  
-- ➗ Division  
-- 🌀 Fibonacci Curve (Continuous Spiral — each Fibonacci number forms one quadrant)
+The project was later extended into a web application using Spring Boot and deployed online using Render.com.
 
 ---
 
-## 🚀 How to Run Locally
+## ✨ Features
 
-1. Clone or download this repository:
-   ```bash
-   git clone https://github.com/Sushmitaa-B/Math-Assistant.git
-   cd Math-Assistant
+### ➕ Arithmetic Operations
+- Addition
+- Subtraction
+- Multiplication
+- Division (with error handling for divide-by-zero)
 
+### 🌀 Fibonacci Visualization
+- Dynamic Fibonacci spiral generation
+- Coordinate grid and axes
+- Color-coded curve segments
+- Automatic scaling for better visualization
 
-2. Compile the Java file:
+### 🎨 UI Features
+- Clean pastel-themed interface
+- Interactive input fields
+- Real-time calculation updates
+- Responsive layout design
+- Error handling for invalid inputs
 
-  javac FibonacciGUI.java
+---
 
+## 🛠️ Technologies Used
 
-3. Run the program:
+### Programming Language
+- Java
+
+### Desktop GUI
+- Java Swing
+- AWT (Abstract Window Toolkit)
+
+### Web Version
+- Spring Boot
+- HTML
+- CSS
+- JavaScript
+
+### Deployment & Tools
+- Docker
+- Maven
+- GitHub
+- Render.com
+
+---
+
+## 📂 Project Structure
+
+```text
+Math-Assistant/
+│
+├── src/
+│   ├── FibonacciGUI.java
+│   ├── FibonacciGUI.class
+│   ├── FibonacciCalculator.class
+│   ├── FibonacciGUI$FibonacciPlotPanel.class
+│   └── FibonacciCalculator$CurveSegment.class
+│
+├── images/
+│   ├── Home.png
+│   ├── Addition.png
+│   ├── Subtraction.png
+│   ├── Multiplication.png
+│   ├── Division.png
+│   └── Fibonacci.png
+│
+├── demo/
+│   └── demo.mp4
+│
+├── public/
+├── index.html
+├── vercel.json
+├── FibonacciGUI.jar
+└── README.md
+```
+
+---
+
+## 🚀 How to Run (Desktop Version)
+
+### 🔹 Step 1: Clone Repository
+```bash
+git clone https://github.com/Sushmitaa-B/Math-Assistant.git
+```
+
+### 🔹 Step 2: Navigate to Source Folder
+```bash
+cd Math-Assistant/src
+```
+
+### 🔹 Step 3: Compile
+```bash
+javac FibonacciGUI.java
+```
+
+### 🔹 Step 4: Run
+```bash
 java FibonacciGUI
-
-
-## 🖼️ Screenshot
-
-![App Screenshot](images/output.png)
+```
 
 ---
 
-## 🎯 Run the App (Pre-Built JAR)
+## ⚡ Run Using JAR File
 
-You can download the pre-built executable here:
-
-👉 [**Download FibonacciGUI.jar**](https://github.com/Sushmitaa-B/Math-Assistant/releases/latest/download/FibonacciGUI.jar)
-
-Then run it with:
+```bash
 java -jar FibonacciGUI.jar
-
-
-✅ The Math Assistant GUI window will open and display your calculator + Fibonacci spiral.
+```
 
 ---
 
-## 🧩 Requirements
+## 🌐 Live Web Application
 
-* Java JDK 8 or higher
-* Works on Windows, macOS, or Linux
+🔗 https://math-lab-1.onrender.com
+
+The web version includes:
+- REST API-based arithmetic operations
+- Fibonacci spiral visualization using Canvas
+- Responsive UI for browser access
 
 ---
 
-## 🧑‍💻 Author
+## 📸 Screenshots
 
-**Sushmitaa B**
-🔗 [GitHub Profile](https://github.com/Sushmitaa-B)
+### 🏠 Home Screen
+![Home Screen](images/Home.png)
 
-[![Download App](https://img.shields.io/badge/⬇️_Download-FibonacciGUI.jar-blue?style=for-the-badge)](https://github.com/Sushmitaa-B/Math-Assistant/releases/latest/download/FibonacciGUI.jar)
+### ➕ Addition
+![Addition](images/Addition.png)
 
+### ➖ Subtraction
+![Subtraction](images/Subtraction.png)
 
+### ✖️ Multiplication
+![Multiplication](images/Multiplication.png)
+
+### ➗ Division
+![Division](images/Division.png)
+
+### 🌀 Fibonacci Spiral
+![Fibonacci](images/Fibonacci.png)
+
+---
+
+## 🎥 Project Demo
+
+📹 Watch Full Demo:
+[Demo Video](demo/demo.mp4)
+
+---
+
+## 🎯 Learning Outcomes
+
+- Java Programming (OOP Concepts)
+- GUI Development using Swing & AWT
+- Event-driven programming
+- Mathematical visualization techniques
+- REST API development using Spring Boot
+- Frontend development (HTML, CSS, JavaScript)
+- Docker containerization
+- Cloud deployment using Render
+- Full-stack application development
+
+---
+
+## 👩‍💻 Author
+
+**B. Sushmitaa**  
+B.Tech – Artificial Intelligence and Data Science  
+Mount Zion College of Engineering and Technology  
+Pudukkottai, Tamil Nadu, India  
+
+GitHub: https://github.com/Sushmitaa-B
+
+---
+
+## 📜 License
+
+This project is created for educational and learning purposes.
